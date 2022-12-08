@@ -4,11 +4,10 @@ tags: stylesheet
 ---
 
 body {
-  display: grid;
-  align-content: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
-  min-height: 80vh;
   row-gap: 2rem;
 }
 
@@ -34,4 +33,51 @@ iframe {
   max-width: 100vw;
 }
 
+.episode-article {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 0 1rem;
+}
 
+.episode-title {
+  font-family: Futura, sans-serif;
+  margin: 0;
+  max-width: 32rem;
+}
+
+.episode-embed {
+  border-radius: 12px;
+  max-width: 32rem;
+}
+
+.episode-latest {
+  background: #111;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.episode-title-latest {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.episode-title-latest-prefix {
+  font-size: 1rem;
+  color: hotpink;
+
+  @media (min-width: 32rem) {
+    font-size: 1.4rem;
+  }
+}
+
+.episode-title-latest-title {
+  text-align: center;
+
+  @media (min-width: 32rem) {
+    font-size: 3rem;
+  }
+}

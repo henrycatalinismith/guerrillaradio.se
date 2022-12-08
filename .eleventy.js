@@ -13,4 +13,11 @@ module.exports = function(eleventyConfig) {
       }
     }
   })
+
+  eleventyConfig.addFilter(
+    "limit",
+    function (arr, from, to) {
+      return arr.slice(from, to);
+    }
+  )
 }
