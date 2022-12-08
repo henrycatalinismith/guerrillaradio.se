@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% for link in collections.stylesheet -%}<link rel="stylesheet" media="{{ link.data.media }}" href="{{ link.url }}" />{%- endfor %}
+    <title>guerrilla radio</title>
+  </head>
+  <body>
+
+    <h1>
+      <img class="name" alt="guerrilla radio" src="/logo-1024.webp" />
+    </h1>
+
+    {% for episode in collections.episode | reverse | limit(0, 1) -%}
+      <article class="episode-article episode-latest">
+        <h2 class="episode-title episode-title-latest">
+          <span class="episode-title-latest-prefix">
+            Latest Episode
+          </span>
+          <span class="episode-title-latest-title">
+            {{ episode.data.title }}
+          </span>
+        </h2>
+
+        <iframe
+          class="episode-embed"
+          src="https://open.spotify.com/embed/episode/{{ episode.data.spotify }}"
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      
+      </article>
+    {% endfor %}
+
+    {% for episode in collections.episode | reverse | limit(1, 999) -%}
+      <article class="episode-article episode-archive">
+        <h2 class="episode-title">
+          {{ episode.data.title }}
+        </h2>
+
+        <iframe
+          class="episode-embed"
+          src="https://open.spotify.com/embed/episode/{{ episode.data.spotify }}"
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      
+      </article>
+    {% endfor %}
+
+  </body>
+</html>
