@@ -7,8 +7,8 @@
   </head>
   <body>
 
-    <h1>
-      <img class="name" alt="guerrilla radio" src="/logo-1024.webp" />
+    <h1 class="heading">
+      <img class="logo" alt="guerrilla radio" src="/logo-1024.webp" />
     </h1>
 
     {% for episode in collections.episode | reverse | limit(0, 1) -%}
@@ -25,32 +25,56 @@
         <iframe
           class="episode-embed"
           src="https://open.spotify.com/embed/episode/{{ episode.data.spotify }}"
-          frameBorder="0" 
-          allowfullscreen="" 
+          frameBorder="0"
+          allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      
+
       </article>
     {% endfor %}
 
-    {% for episode in collections.episode | reverse | limit(1, 999) -%}
-      <article class="episode-article episode-archive">
-        <h2 class="episode-title">
-          {{ episode.data.title }}
-        </h2>
+    <div class="mission-statement">
+      <h2 class="mission-statement-title">Our Mission</h2>
+      <p class="mission-statement-paragraph">
+        Our union channels our collective power as workers in order to maintain high standards for working conditions at Spotify.
+      </p>
+      <p class="mission-statement-paragraph">
+        Through collective bargaining we'll increase the transparency, fairness and stability underpinning our compensation.
+      </p>
+      <p class="mission-statement-paragraph">
+        Through democratic representation we'll be active participants in decision making.
+      </p>
+      <p class="mission-statement-paragraph">
+        And through our solidarity and engagement we'll take care of each other, securing the community we've built here for the long haul.
+      </p>
+    </div>
 
-        <iframe
-          class="episode-embed"
-          src="https://open.spotify.com/embed/episode/{{ episode.data.spotify }}"
-          frameBorder="0" 
-          allowfullscreen="" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      
-      </article>
-    {% endfor %}
+    <div class="previous-episodes">
+
+      <h2 class="previous-episodes-title">
+        Previous episodes
+      </h2>
+
+      {% for episode in collections.episode | reverse | limit(1, 999) -%}
+        <article class="episode-article episode-archive">
+          <h3 class="episode-title">
+            {{ episode.data.title }}
+          </h3>
+
+          <iframe
+            class="episode-embed"
+            src="https://open.spotify.com/embed/episode/{{ episode.data.spotify }}"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+
+        </article>
+      {% endfor %}
+
+    </div>
 
   </body>
 </html>
