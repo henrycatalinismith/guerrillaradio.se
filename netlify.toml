@@ -1,3 +1,9 @@
 [build]
  command = "yarn build"
  publish = "_site/"
+
+[[redirects]]
+ from = "/"
+ to = "http://spotifyworkers.org"
+ status = 301
+ force = true
