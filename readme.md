@@ -1,5 +1,7 @@
 # guerrillaradio.se
 
+An abandoned old website that served as a precursor to spotifyworkers.org
+
 ## quick start
 
 ```bash
